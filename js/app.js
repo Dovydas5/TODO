@@ -1,12 +1,18 @@
-console.log(todo_list)
+"use strict";
 
- function renderList (list){
-    let HTML = '';
-    for( let i=0; i<list.length; i++ ){
-        const todoItem = list[i];
-        console.log(todoItem.description); 
+function renderList(list) {
+  const listTodo = document.querySelector(".container");
+  let HTML = "";
 
-        }
-
- }
- renderList(todo_list);
+  for (let i = 0; i < list.length; i++) {
+    const todoItem = list[i];
+    HTML += `
+    <div class="item">
+    <div class="status ${todoItem.status}"></div>
+    <p class="description">${todoItem.description}</p>
+    <div class="deadline">${todoItem.deadline}</div>
+    </div>`;
+  }
+  return (listTodo.innerHTML += HTML);
+}
+renderList(todo_list);
